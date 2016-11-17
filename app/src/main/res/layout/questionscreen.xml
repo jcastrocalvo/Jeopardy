@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0D47A1">
+
+    <TextView
+        android:text="Which person immediately preceded Henry VIII as reigning monarch of England?"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/questionName"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:layout_marginTop="4dp"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:text="5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Timer"
+        android:textSize="70dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_weight="1"
+        />
+    <TextView
+        android:text="Answer: King Henry VII"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/Answer"
+        android:textSize="20dp"
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:layout_weight="1"
+        android:textStyle="bold"
+        />
+</LinearLayout>

@@ -51,6 +51,7 @@
                     android:layout_gravity="top"
                     android:layout_marginTop="33dp"
                     android:background="@drawable/button_border"
+                    android:onClick="HistQuestionTwoHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
@@ -62,6 +63,7 @@
                     android:layout_gravity="top"
                     android:layout_marginTop="132dp"
                     android:background="@drawable/button_border"
+                    android:visibility="invisible"
                     />
                 <Button
                     android:layout_width="match_parent"

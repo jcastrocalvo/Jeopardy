@@ -59,7 +59,7 @@ public class Player implements Parcelable{
     }
 
 
-    //need to override these for serailizing the objects
+    //need to override these for serializing the objects
     @Override
     public int describeContents() {
         return 0;
@@ -73,7 +73,7 @@ public class Player implements Parcelable{
         parcel.writeString(port);
     }
 
-    //this is to create the serailizeable object so that we can read it
+    //this is to create the serialize-able object so that we can read it
     public static final Parcelable.Creator<Player> CREATOR = new Parcelable.Creator<Player>() {
         public Player createFromParcel(Parcel in) {
             return new Player(in);

@@ -9,7 +9,7 @@ import android.view.WindowManager;
 public class MenuActivity extends AppCompatActivity {
 
     String ipAddress = "192.168.4.1";
-    String portNumber = "333";
+    String portNumber = "80";
     Player playerOne;
     Player playerTwo;
 

@@ -68,6 +68,42 @@ public class BoardActivity extends AppCompatActivity{
         //take them out of the intent so we have their info to pass along
         playerOne = i.getParcelableExtra("Player1");
         playerTwo = i.getParcelableExtra("Player2");
+
+        HistTwoHundredButton = (Button) findViewById(R.id.twoButton);
+        HistFourHundredButton = (Button) findViewById(R.id.fourButton);
+        HistSixHundredButton = (Button) findViewById(R.id.sixButton);
+        HistEightHundredButton = (Button) findViewById(R.id.eightButton);
+        HistThousandButton = (Button) findViewById(R.id.tenButton);
+
+        EnglishTwoHundredButton = (Button) findViewById(R.id.thirdview_twoButton);
+        EnglishFourHundredButton = (Button) findViewById(R.id.thirdview_fourButton);
+        EnglishSixHundredButton = (Button) findViewById(R.id.thirdview_sixButton);
+        EnglishEightHundredButton = (Button) findViewById(R.id.thirdview_eightButton);
+        EnglishThousandButton = (Button) findViewById(R.id.thirdview_tenButton);
+
+        ScienceTwoHundredButton = (Button) findViewById(R.id.secondview_twoButton);
+        ScienceFourHundredButton = (Button) findViewById(R.id.secondview_fourButton);
+        ScienceSixHundredButton = (Button) findViewById(R.id.secondview_sixButton);
+        ScienceEightHundredButton = (Button) findViewById(R.id.secondview_eightButton);
+        ScienceThousandButton = (Button) findViewById(R.id.secondview_tenButton);
+
+        ChemistryTwoHundredButton = (Button) findViewById(R.id.fourthview_twoButton);
+        ChemistryFourHundredButton = (Button) findViewById(R.id.fourthview_fourButton);
+        ChemistrySixHundredButton = (Button) findViewById(R.id.fourthview_sixButton);
+        ChemistryEightHundredButton = (Button) findViewById(R.id.fourthview_eightButton);
+        ChemistryThousandButton = (Button) findViewById(R.id.fourthview_tenButton);
+
+        MathTwoHundredButton = (Button) findViewById(R.id.fifthview_twoButton);
+        MathFourHundredButton = (Button) findViewById(R.id.fifthview_fourButton);
+        MathSixHundredButton = (Button) findViewById(R.id.fifthview_sixButton);
+        MathEightHundredButton = (Button) findViewById(R.id.fifthview_eightButton);
+        MathThousandButton = (Button) findViewById(R.id.fifthview_tenButton);
+
+        LiteratureTwoHundredButton = (Button) findViewById(R.id.sixthview_twoButton);
+        LiteratureFourHundredButton = (Button) findViewById(R.id.sixthview_fourButton);
+        LiteratureSixHundredButton = (Button) findViewById(R.id.sixthview_sixButton);
+        LiteratureEightHundredButton = (Button) findViewById(R.id.sixthview_eightButton);
+        LiteratureThousandButton = (Button) findViewById(R.id.sixthview_tenButton);
     }
 
     public void HistQuestionTwoHundred(View view){
@@ -76,6 +112,8 @@ public class BoardActivity extends AppCompatActivity{
         //put them on the intent and send them over!
         intent.putExtra("Player1", playerOne);
         intent.putExtra("Player2", playerTwo);
+        intent.putExtra("QuestionScore", 200);
         startActivity(intent);
+        HistTwoHundredButton.setVisibility(View.GONE);
     }
 }

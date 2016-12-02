@@ -22,6 +22,7 @@ public class QuestionActivity extends AppCompatActivity {
     TextView timerTextView;
     Player playerOne;
     Player playerTwo;
+    int scoreToAdd;
 
     //we need to handle the threading issues of running a timer on a different thread
     @Override
@@ -29,11 +30,12 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questionscreen);
         timerTextView  = (TextView)findViewById(R.id.Timer);
-        //lets get ready to desearialize these players
+        //lets get ready to de-serialize these players
         Intent i = getIntent();
-        //deserialize the players so we can access their infor
+        //deserialize the players so we can access their information
         playerOne = i.getParcelableExtra("Player1");
         playerTwo = i.getParcelableExtra("Player2");
+        scoreToAdd = i.getIntExtra("QuestionScore", 0);
 
         //now we do the threading magic so we run on the main thread
         final Timer timer = new Timer();
@@ -84,30 +86,31 @@ public class QuestionActivity extends AppCompatActivity {
 
         //first button to give points to the first player
         alertDialog.setButton(AlertDialog.BUTTON_NEGATIVE, "Player 1", new DialogInterface.OnClickListener() {
-
             public void onClick(DialogInterface dialog, int id) {
                 //executes the request to give points
                 new Request(
-                        alertDialog.getContext(), "Player 1:200", playerOne.getIP(), playerTwo.getIP(), "score"
+                        alertDialog.getContext(), Integer.toString(scoreToAdd), playerOne.getIP(), playerTwo.getPort(), "score"
                 ).execute();
                 dialog.dismiss();
+                QuestionActivity.this.finish();
             } });
 
         //second button to give points to the second player
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Player 2", new DialogInterface.OnClickListener() {
-
             public void onClick(DialogInterface dialog, int id) {
                 //executes the request to give points
                 new Request(
-                        alertDialog.getContext(), "Player 2:200", playerOne.getIP(), playerTwo.getIP(), "score"
+                        alertDialog.getContext(), Integer.toString(scoreToAdd), playerOne.getIP(), playerTwo.getPort(), "score"
                 ).execute();
                 dialog.dismiss();
+                QuestionActivity.this.finish();
             }});
 
         //third button for no answer
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "No Answer", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 dialog.dismiss();
+                QuestionActivity.this.finish();
             }});
 
         alertDialog.show();

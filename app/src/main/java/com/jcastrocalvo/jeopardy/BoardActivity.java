@@ -112,7 +112,7 @@ public class BoardActivity extends AppCompatActivity{
         //put them on the intent and send them over!
         intent.putExtra("Player1", playerOne);
         intent.putExtra("Player2", playerTwo);
-        intent.putExtra("QuestionScore", 200);
+        intent.putExtra("QuestionScore", 2);
         startActivity(intent);
         HistTwoHundredButton.setVisibility(View.GONE);
     }

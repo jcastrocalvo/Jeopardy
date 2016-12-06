@@ -3,6 +3,8 @@ package com.jcastrocalvo.jeopardy;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
@@ -64,6 +66,7 @@ class Request extends AsyncTask<Void, Void, Void> {
 
         try {
             requestReply = sendRequest(parameterValue, ipAddress, portNumber, parameter);
+            Log.d("BoardResponse", requestReply);
         } catch (Exception e) {
             e.printStackTrace();
         }

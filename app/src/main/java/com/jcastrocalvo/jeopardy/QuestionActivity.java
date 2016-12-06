@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -112,7 +111,6 @@ public class QuestionActivity extends AppCompatActivity {
                 dialog.dismiss();
                 QuestionActivity.this.finish();
             }});
-
         alertDialog.show();
     }
 }

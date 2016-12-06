@@ -18,6 +18,7 @@ public class BoardActivity extends AppCompatActivity{
     Player playerOne;
     Player playerTwo;
     BluetoothDevice Device;
+	QuestionBank bank = new QuestionBank();
 
     //history buttons
     private Button HistTwoHundredButton;
@@ -109,6 +110,7 @@ public class BoardActivity extends AppCompatActivity{
         LiteratureThousandButton = (Button) findViewById(R.id.sixthview_tenButton);
     }
 
+	//-----------------------------------------------------------
     public void HistQuestionTwoHundred(View view){
         //get ready to serialize for the next activity
         Intent intent = new Intent(this, QuestionActivity.class);
@@ -117,7 +119,419 @@ public class BoardActivity extends AppCompatActivity{
         intent.putExtra("Player2", playerTwo);
         intent.putExtra("QuestionScore", 2);
         intent.putExtra("Device", Device);
+	    intent.putExtra("Question", bank.GetHistoryQuestion(2)[0]);
+	    intent.putExtra("Answer", bank.GetHistoryQuestion(2)[1]);
         startActivity(intent);
         HistTwoHundredButton.setVisibility(View.GONE);
     }
+
+    public void HistQuestionFourHundred(View view){
+        //get ready to serialize for the next activity
+        Intent intent = new Intent(this, QuestionActivity.class);
+        //put them on the intent and send them over!
+        intent.putExtra("Player1", playerOne);
+        intent.putExtra("Player2", playerTwo);
+        intent.putExtra("QuestionScore", 4);
+        intent.putExtra("Device", Device);
+	    intent.putExtra("Question", bank.GetHistoryQuestion(4)[0]);
+	    intent.putExtra("Answer", bank.GetHistoryQuestion(4)[1]);
+        startActivity(intent);
+        HistFourHundredButton.setVisibility(View.GONE);
+    }
+
+    public void HistQuestionSixHundred(View view){
+        //get ready to serialize for the next activity
+        Intent intent = new Intent(this, QuestionActivity.class);
+        //put them on the intent and send them over!
+        intent.putExtra("Player1", playerOne);
+        intent.putExtra("Player2", playerTwo);
+        intent.putExtra("QuestionScore", 6);
+        intent.putExtra("Device", Device);
+	    intent.putExtra("Question", bank.GetHistoryQuestion(6)[0]);
+	    intent.putExtra("Answer", bank.GetHistoryQuestion(6)[1]);
+        startActivity(intent);
+        HistSixHundredButton.setVisibility(View.GONE);
+    }
+
+    public void HistQuestionEightHundred(View view){
+        //get ready to serialize for the next activity
+        Intent intent = new Intent(this, QuestionActivity.class);
+        //put them on the intent and send them over!
+        intent.putExtra("Player1", playerOne);
+        intent.putExtra("Player2", playerTwo);
+        intent.putExtra("QuestionScore", 8);
+        intent.putExtra("Device", Device);
+	    intent.putExtra("Question", bank.GetHistoryQuestion(8)[0]);
+	    intent.putExtra("Answer", bank.GetHistoryQuestion(8)[1]);
+        startActivity(intent);
+        HistEightHundredButton.setVisibility(View.GONE);
+    }
+
+    public void HistQuestionThousand(View view) {
+	    //get ready to serialize for the next activity
+	    Intent intent = new Intent(this, QuestionActivity.class);
+	    //put them on the intent and send them over!
+	    intent.putExtra("Player1", playerOne);
+	    intent.putExtra("Player2", playerTwo);
+	    intent.putExtra("QuestionScore", 10);
+	    intent.putExtra("Device", Device);
+	    intent.putExtra("Question", bank.GetHistoryQuestion(10)[0]);
+	    intent.putExtra("Answer", bank.GetHistoryQuestion(10)[1]);
+	    startActivity(intent);
+	    HistThousandButton.setVisibility(View.GONE);
+    }
+	    //-----------------------------------------------------------
+
+	public void ScienceQuestionTwoHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 2);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetScienceQuestion(2)[0]);
+		intent.putExtra("Answer", bank.GetScienceQuestion(2)[1]);
+		startActivity(intent);
+		ScienceTwoHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ScienceQuestionFourHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 4);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetScienceQuestion(4)[0]);
+		intent.putExtra("Answer", bank.GetScienceQuestion(4)[1]);
+		startActivity(intent);
+		ScienceFourHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ScienceQuestionSixHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 6);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetScienceQuestion(6)[0]);
+		intent.putExtra("Answer", bank.GetScienceQuestion(6)[1]);
+		startActivity(intent);
+		ScienceSixHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ScienceQuestionEightHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 8);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetScienceQuestion(8)[0]);
+		intent.putExtra("Answer", bank.GetScienceQuestion(8)[1]);
+		startActivity(intent);
+		ScienceEightHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ScienceQuestionThousand(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetScienceQuestion(10)[0]);
+		intent.putExtra("Answer", bank.GetScienceQuestion(10)[1]);
+		startActivity(intent);
+		ScienceThousandButton.setVisibility(View.GONE);
+    }
+	//-----------------------------------------------------------
+
+	public void MathQuestionTwoHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 2);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetMathQuestion(2)[0]);
+		intent.putExtra("Answer", bank.GetMathQuestion(2)[1]);
+		startActivity(intent);
+		MathTwoHundredButton.setVisibility(View.GONE);
+	}
+
+	public void MathQuestionFourHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 4);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetMathQuestion(4)[0]);
+		intent.putExtra("Answer", bank.GetMathQuestion(4)[1]);
+		startActivity(intent);
+		MathFourHundredButton.setVisibility(View.GONE);
+	}
+
+	public void MathQuestionSixHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 6);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetMathQuestion(6)[0]);
+		intent.putExtra("Answer", bank.GetMathQuestion(6)[1]);
+		startActivity(intent);
+		MathSixHundredButton.setVisibility(View.GONE);
+	}
+
+	public void MathQuestionEightHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 8);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetMathQuestion(8)[0]);
+		intent.putExtra("Answer", bank.GetMathQuestion(8)[1]);
+		startActivity(intent);
+		MathEightHundredButton.setVisibility(View.GONE);
+	}
+
+	public void MathQuestionThousand(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetMathQuestion(10)[0]);
+		intent.putExtra("Answer", bank.GetMathQuestion(10)[1]);
+		startActivity(intent);
+		MathThousandButton.setVisibility(View.GONE);
+	}
+	//-----------------------------------------------------------
+	public void EnglishQuestionTwoHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 2);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetEnglishQuestion(2)[0]);
+		intent.putExtra("Answer", bank.GetEnglishQuestion(2)[1]);
+		startActivity(intent);
+		EnglishTwoHundredButton.setVisibility(View.GONE);
+	}
+
+	public void EnglishQuestionFourHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 4);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetEnglishQuestion(4)[0]);
+		intent.putExtra("Answer", bank.GetEnglishQuestion(4)[1]);
+		startActivity(intent);
+		EnglishFourHundredButton.setVisibility(View.GONE);
+	}
+
+	public void EnglishQuestionSixHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 6);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetEnglishQuestion(6)[0]);
+		intent.putExtra("Answer", bank.GetEnglishQuestion(6)[1]);
+		startActivity(intent);
+		EnglishSixHundredButton.setVisibility(View.GONE);
+	}
+
+	public void EnglishQuestionEightHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 8);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetEnglishQuestion(8)[0]);
+		intent.putExtra("Answer", bank.GetEnglishQuestion(8)[1]);
+		startActivity(intent);
+		EnglishEightHundredButton.setVisibility(View.GONE);
+	}
+
+	public void EnglishQuestionThousand(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetEnglishQuestion(10)[0]);
+		intent.putExtra("Answer", bank.GetEnglishQuestion(10)[1]);
+		startActivity(intent);
+		EnglishThousandButton.setVisibility(View.GONE);
+	}
+	//-----------------------------------------------------------
+	public void ChemistryQuestionTwoHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 2);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetChemQuestion(2)[0]);
+		intent.putExtra("Answer", bank.GetChemQuestion(2)[1]);
+		startActivity(intent);
+		ChemistryTwoHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ChemistryQuestionFourHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 4);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetChemQuestion(4)[0]);
+		intent.putExtra("Answer", bank.GetChemQuestion(4)[1]);
+		startActivity(intent);
+		ChemistryFourHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ChemistryQuestionSixHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 6);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetChemQuestion(6)[0]);
+		intent.putExtra("Answer", bank.GetChemQuestion(6)[1]);
+		startActivity(intent);
+		ChemistrySixHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ChemistryQuestionEightHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 8);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetChemQuestion(8)[0]);
+		intent.putExtra("Answer", bank.GetChemQuestion(8)[1]);
+		startActivity(intent);
+		ChemistryEightHundredButton.setVisibility(View.GONE);
+	}
+
+	public void ChemistryQuestionThousand(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetChemQuestion(10)[0]);
+		intent.putExtra("Answer", bank.GetChemQuestion(10)[1]);
+		startActivity(intent);
+		ChemistryThousandButton.setVisibility(View.GONE);
+	}
+	//-----------------------------------------------------------
+	//-----------------------------------------------------------
+	public void LitQuestionTwoHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 2);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetLitQuestion(2)[0]);
+		intent.putExtra("Answer", bank.GetLitQuestion(2)[1]);
+		startActivity(intent);
+		LiteratureTwoHundredButton.setVisibility(View.GONE);
+	}
+
+	public void LitQuestionFourHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 4);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetLitQuestion(4)[0]);
+		intent.putExtra("Answer", bank.GetLitQuestion(4)[1]);
+		startActivity(intent);
+		LiteratureFourHundredButton.setVisibility(View.GONE);
+	}
+
+	public void LitQuestionSixHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 6);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetLitQuestion(6)[0]);
+		intent.putExtra("Answer", bank.GetLitQuestion(6)[1]);
+		startActivity(intent);
+		LiteratureSixHundredButton.setVisibility(View.GONE);
+	}
+
+	public void LitQuestionEightHundred(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 8);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetLitQuestion(8)[0]);
+		intent.putExtra("Answer", bank.GetLitQuestion(8)[1]);
+		startActivity(intent);
+		LiteratureEightHundredButton.setVisibility(View.GONE);
+	}
+
+	public void LitQuestionThousand(View view){
+		//get ready to serialize for the next activity
+		Intent intent = new Intent(this, QuestionActivity.class);
+		//put them on the intent and send them over!
+		intent.putExtra("Player1", playerOne);
+		intent.putExtra("Player2", playerTwo);
+		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("Device", Device);
+		intent.putExtra("Question", bank.GetLitQuestion(10)[0]);
+		intent.putExtra("Answer", bank.GetLitQuestion(10)[1]);
+		startActivity(intent);
+		LiteratureThousandButton.setVisibility(View.GONE);
+	}
+	//-----------------------------------------------------------
 }

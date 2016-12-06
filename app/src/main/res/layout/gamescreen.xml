@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/twoButton"
-                    android:text="200"
+                    android:text="@string/TwoHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="33dp"
@@ -59,32 +59,36 @@
                     android:layout_height="33dp"
                     android:layout_below="@+id/eightButton"
                     android:id="@+id/tenButton"
-                    android:text="1000"
+                    android:text="@string/Thousand"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
                     android:layout_gravity="top"
-                    android:layout_marginTop="165dp"/>
+                    android:layout_marginTop="165dp"
+                    android:onClick="HistQuestionThousand"
+                    />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fourButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="400"
+                    android:text="@string/FourHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="66dp"
                     android:background="@drawable/button_border"
+                    android:onClick="HistQuestionFourHundred"
                     />
 
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/sixButton"
-                    android:text="600"
+                    android:text="@string/SixHundred"
                     android:layout_gravity="top"
                     android:layout_marginTop="99dp"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
+                    android:onClick="HistQuestionSixHundred"
                     />
 
                 <Button
@@ -92,16 +96,16 @@
                     android:layout_height="33dp"
                     android:id="@+id/eightButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="800"
+                    android:text="@string/EightHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="132dp"
                     android:background="@drawable/button_border"
                     android:visibility="visible"
+                    android:onClick="HistQuestionEightHundred"
                     />
 
-
-            </android.support.v7.widget.CardView>dd
+            </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/second_view"
@@ -126,53 +130,59 @@
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/secondview_twoButton"
-                    android:text="200"
+                    android:text="@string/TwoHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="33dp"
                     android:background="@drawable/button_border"
+                    android:onClick="ScienceQuestionTwoHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/secondview_eightButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="800"
+                    android:text="@string/EightHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="132dp"
                     android:background="@drawable/button_border"
+                    android:onClick="ScienceQuestionEightHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:layout_below="@+id/eightButton"
                     android:id="@+id/secondview_tenButton"
-                    android:text="1000"
+                    android:text="@string/Thousand"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
                     android:layout_gravity="top"
-                    android:layout_marginTop="165dp"/>
+                    android:layout_marginTop="165dp"
+                    android:onClick="ScienceQuestionThousand"
+                    />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/secondview_fourButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="400"
+                    android:text="@string/FourHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="66dp"
                     android:background="@drawable/button_border"
+                    android:onClick="ScienceQuestionFourHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/secondview_sixButton"
-                    android:text="600"
+                    android:text="@string/SixHundred"
                     android:layout_gravity="top"
                     android:layout_marginTop="99dp"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
+                    android:onClick="ScienceQuestionSixHundred"
                     />
             </android.support.v7.widget.CardView>
 
@@ -199,53 +209,59 @@
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fifthview_twoButton"
-                    android:text="200"
+                    android:text="@string/TwoHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="33dp"
                     android:background="@drawable/button_border"
+                    android:onClick="MathQuestionTwoHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fifthview_eightButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="800"
+                    android:text="@string/EightHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="132dp"
                     android:background="@drawable/button_border"
+                    android:onClick="MathQuestionEightHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:layout_below="@+id/eightButton"
                     android:id="@+id/fifthview_tenButton"
-                    android:text="1000"
+                    android:text="@string/Thousand"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
                     android:layout_gravity="top"
-                    android:layout_marginTop="165dp"/>
+                    android:layout_marginTop="165dp"
+                    android:onClick="MathQuestionThousand"
+                    />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fifthview_fourButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="400"
+                    android:text="@string/FourHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="66dp"
                     android:background="@drawable/button_border"
+                    android:onClick="MathQuestionFourHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fifthview_sixButton"
-                    android:text="600"
+                    android:text="@string/SixHundred"
                     android:layout_gravity="top"
                     android:layout_marginTop="99dp"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
+                    android:onClick="MathQuestionSixHundred"
                     />
             </android.support.v7.widget.CardView>
         </LinearLayout>
@@ -274,31 +290,35 @@
                     android:layout_height="33dp"
                     android:layout_below="@+id/eightButton"
                     android:id="@+id/thirdview_tenButton"
-                    android:text="1000"
+                    android:text="@string/Thousand"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
                     android:layout_gravity="top"
-                    android:layout_marginTop="165dp"/>
+                    android:layout_marginTop="165dp"
+                    android:onClick="EnglishQuestionThousand"
+                    />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/thirdview_fourButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="400"
+                    android:text="@string/FourHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="66dp"
                     android:background="@drawable/button_border"
+                    android:onClick="EnglishQuestionFourHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/thirdview_sixButton"
-                    android:text="600"
+                    android:text="@string/SixHundred"
                     android:layout_gravity="top"
                     android:layout_marginTop="99dp"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
+                    android:onClick="EnglishQuestionSixHundred"
                     />
 
                 <Button
@@ -306,11 +326,12 @@
                     android:layout_height="33dp"
                     android:id="@+id/thirdview_eightButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="800"
+                    android:text="@string/EightHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="132dp"
                     android:background="@drawable/button_border"
+                    android:onClick="EnglishQuestionEightHundred"
                     />
 
                 <TextView
@@ -328,11 +349,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/thirdview_twoButton"
-                    android:text="200"
+                    android:text="@string/TwoHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="33dp"
                     android:background="@drawable/button_border"
+                    android:onClick="EnglishQuestionTwoHundred"
                     />
             </android.support.v7.widget.CardView>
 
@@ -352,31 +374,35 @@
                     android:layout_height="33dp"
                     android:layout_below="@+id/eightButton"
                     android:id="@+id/fourthview_tenButton"
-                    android:text="1000"
+                    android:text="@string/Thousand"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
                     android:layout_gravity="top"
-                    android:layout_marginTop="165dp"/>
+                    android:layout_marginTop="165dp"
+                    android:onClick="ChemistryQuestionThousand"
+                    />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fourthview_fourButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="400"
+                    android:text="@string/FourHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="66dp"
                     android:background="@drawable/button_border"
+                    android:onClick="ChemistryQuestionFourHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fourthview_sixButton"
-                    android:text="600"
+                    android:text="@string/SixHundred"
                     android:layout_gravity="top"
                     android:layout_marginTop="99dp"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
+                    android:onClick="ChemistryQuestionSixHundred"
                     />
 
                 <Button
@@ -384,11 +410,12 @@
                     android:layout_height="33dp"
                     android:id="@+id/fourthview_eightButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="800"
+                    android:text="@string/EightHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="132dp"
                     android:background="@drawable/button_border"
+                    android:onClick="ChemistryQuestionEightHundred"
                     />
 
                 <TextView
@@ -406,11 +433,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/fourthview_twoButton"
-                    android:text="200"
+                    android:text="@string/TwoHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="33dp"
                     android:background="@drawable/button_border"
+                    android:onClick="ChemistryQuestionTwoHundred"
                     />
             </android.support.v7.widget.CardView>
 
@@ -437,53 +465,59 @@
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/sixthview_twoButton"
-                    android:text="200"
+                    android:text="@string/TwoHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="33dp"
                     android:background="@drawable/button_border"
+                    android:onClick="LitQuestionTwoHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/sixthview_eightButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="800"
+                    android:text="@string/EightHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="132dp"
                     android:background="@drawable/button_border"
+                    android:onClick="LitQuestionEightHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:layout_below="@+id/eightButton"
                     android:id="@+id/sixthview_tenButton"
-                    android:text="1000"
+                    android:text="@string/Thousand"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
                     android:layout_gravity="top"
-                    android:layout_marginTop="165dp"/>
+                    android:layout_marginTop="165dp"
+                    android:onClick="LitQuestionThousand"
+                    />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/sixthview_fourButton"
                     android:layout_below="@+id/twoButton"
-                    android:text="400"
+                    android:text="@string/FourHundred"
                     android:textColor="#ffffff"
                     android:layout_gravity="top"
                     android:layout_marginTop="66dp"
                     android:background="@drawable/button_border"
+                    android:onClick="LitQuestionFourHundred"
                     />
                 <Button
                     android:layout_width="match_parent"
                     android:layout_height="33dp"
                     android:id="@+id/sixthview_sixButton"
-                    android:text="600"
+                    android:text="@string/SixHundred"
                     android:layout_gravity="top"
                     android:layout_marginTop="99dp"
                     android:textColor="#ffffff"
                     android:background="@drawable/button_border"
+                    android:onClick="LitQuestionSixHundred"
                     />
             </android.support.v7.widget.CardView>
         </LinearLayout>

@@ -24,6 +24,8 @@ import java.util.TimerTask;
 public class QuestionActivity extends AppCompatActivity {
     int time = 5;
     TextView timerTextView;
+    TextView question;
+	TextView answer;
     Player playerOne;
     Player playerTwo;
     int scoreToAdd;
@@ -36,6 +38,8 @@ public class QuestionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.questionscreen);
         timerTextView  = (TextView)findViewById(R.id.Timer);
+        question = (TextView)findViewById(R.id.questionName);
+	    answer = (TextView)findViewById(R.id.Answer);
         //lets get ready to de-serialize these players
         Intent i = getIntent();
         //deserialize the players so we can access their information
@@ -43,6 +47,8 @@ public class QuestionActivity extends AppCompatActivity {
         playerTwo = i.getParcelableExtra("Player2");
         scoreToAdd = i.getIntExtra("QuestionScore", 0);
         Device = i.getParcelableExtra("Device");
+	    question.setText(i.getStringExtra("Question"));
+	    answer.setText(i.getStringExtra("Answer"));
 
 
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
@@ -124,7 +130,7 @@ public class QuestionActivity extends AppCompatActivity {
                 //executes the request to give points
                 if (bluetoothService.getState() != Constants.STATE_CONNECTED)
                     System.out.println("There was a problem with the connection");
-                byte[] message =  "2".getBytes();
+                byte[] message =  Integer.toString(scoreToAdd).getBytes();
                 bluetoothService.write(message);
                 dialog.dismiss();
                 QuestionActivity.this.finish();

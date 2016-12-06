@@ -21,6 +21,8 @@ public class MenuActivity extends AppCompatActivity {
     Player playerOne;
     Player playerTwo;
     BluetoothDevice deviceToPass;
+    BluetoothService bluetoothService;
+    BluetoothDevice Device;
 
 
     //just creates te activity and sets the players info
@@ -39,6 +41,19 @@ public class MenuActivity extends AppCompatActivity {
             Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
             startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
         }
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        if (pairedDevices.size() > 0) {
+            // Loop through paired devices
+            for (BluetoothDevice device : pairedDevices) {
+                // Add the name and address to an array adapter to show in a ListView
+                if(Objects.equals(device.getAddress(), "20:16:03:25:62:42"))
+                    Device = device;
+                System.out.println(device.getName() + "\n" + device.getAddress());
+            }
+        }
+        android.os.Handler handler = new android.os.Handler();
+        bluetoothService = new BluetoothService(handler, Device);
+        bluetoothService.connect();
     }
 
     //serializes the player info so we can send it accross activities
@@ -49,5 +64,15 @@ public class MenuActivity extends AppCompatActivity {
         intent.putExtra("Player2", playerTwo);
         intent.putExtra("Device", deviceToPass);
         startActivity(intent);
+    }
+
+    public void resetScores(View view){
+        new Request(
+                MenuActivity.this, Integer.toString(0), playerOne.getIP(), playerTwo.getPort(), "score"
+        ).execute();
+        if (bluetoothService.getState() != Constants.STATE_CONNECTED)
+            System.out.println("There was a problem with the connection");
+        byte[] message =  Integer.toString(0).getBytes();
+        bluetoothService.write(message);
     }
 }

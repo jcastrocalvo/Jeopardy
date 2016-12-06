@@ -1,11 +1,16 @@
 package com.jcastrocalvo.jeopardy;
 
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import java.util.Objects;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +27,8 @@ public class QuestionActivity extends AppCompatActivity {
     Player playerOne;
     Player playerTwo;
     int scoreToAdd;
+    BluetoothService bluetoothService;
+    BluetoothDevice Device;
 
     //we need to handle the threading issues of running a timer on a different thread
     @Override
@@ -35,6 +42,23 @@ public class QuestionActivity extends AppCompatActivity {
         playerOne = i.getParcelableExtra("Player1");
         playerTwo = i.getParcelableExtra("Player2");
         scoreToAdd = i.getIntExtra("QuestionScore", 0);
+        Device = i.getParcelableExtra("Device");
+
+
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        if (pairedDevices.size() > 0) {
+            // Loop through paired devices
+            for (BluetoothDevice device : pairedDevices) {
+                // Add the name and address to an array adapter to show in a ListView
+                if(Objects.equals(device.getAddress(), "20:16:03:25:62:42"))
+                    Device = device;
+                System.out.println(device.getName() + "\n" + device.getAddress());
+            }
+        }
+        android.os.Handler handler = new android.os.Handler();
+        bluetoothService = new BluetoothService(handler, Device);
+        bluetoothService.connect();
 
         //now we do the threading magic so we run on the main thread
         final Timer timer = new Timer();
@@ -98,9 +122,10 @@ public class QuestionActivity extends AppCompatActivity {
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Player 2", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 //executes the request to give points
-                new Request(
-                        alertDialog.getContext(), Integer.toString(scoreToAdd), playerOne.getIP(), playerTwo.getPort(), "score"
-                ).execute();
+                if (bluetoothService.getState() != Constants.STATE_CONNECTED)
+                    System.out.println("There was a problem with the connection");
+                byte[] message =  "2".getBytes();
+                bluetoothService.write(message);
                 dialog.dismiss();
                 QuestionActivity.this.finish();
             }});

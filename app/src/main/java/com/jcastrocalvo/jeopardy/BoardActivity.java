@@ -1,5 +1,6 @@
 package com.jcastrocalvo.jeopardy;
 
+import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class BoardActivity extends AppCompatActivity{
 
     Player playerOne;
     Player playerTwo;
+    BluetoothDevice Device;
 
     //history buttons
     private Button HistTwoHundredButton;
@@ -68,6 +70,7 @@ public class BoardActivity extends AppCompatActivity{
         //take them out of the intent so we have their info to pass along
         playerOne = i.getParcelableExtra("Player1");
         playerTwo = i.getParcelableExtra("Player2");
+        Device = i.getParcelableExtra("Device");
 
         HistTwoHundredButton = (Button) findViewById(R.id.twoButton);
         HistFourHundredButton = (Button) findViewById(R.id.fourButton);
@@ -113,6 +116,7 @@ public class BoardActivity extends AppCompatActivity{
         intent.putExtra("Player1", playerOne);
         intent.putExtra("Player2", playerTwo);
         intent.putExtra("QuestionScore", 2);
+        intent.putExtra("Device", Device);
         startActivity(intent);
         HistTwoHundredButton.setVisibility(View.GONE);
     }

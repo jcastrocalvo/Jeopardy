@@ -56,6 +56,20 @@ public class MenuActivity extends AppCompatActivity {
         bluetoothService.connect();
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        bluetoothService.stop();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (bluetoothService != null) {
+            bluetoothService.connect();
+        }
+    }
+
     //serializes the player info so we can send it accross activities
     public void sendMessage(View view) {
         Intent intent = new Intent(this, BoardActivity.class);

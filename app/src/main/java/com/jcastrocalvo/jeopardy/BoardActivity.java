@@ -173,7 +173,7 @@ public class BoardActivity extends AppCompatActivity{
 	    //put them on the intent and send them over!
 	    intent.putExtra("Player1", playerOne);
 	    intent.putExtra("Player2", playerTwo);
-	    intent.putExtra("QuestionScore", 10);
+	    intent.putExtra("QuestionScore", 1);
 	    intent.putExtra("Device", Device);
 	    intent.putExtra("Question", bank.GetHistoryQuestion(10)[0]);
 	    intent.putExtra("Answer", bank.GetHistoryQuestion(10)[1]);
@@ -244,7 +244,7 @@ public class BoardActivity extends AppCompatActivity{
 		//put them on the intent and send them over!
 		intent.putExtra("Player1", playerOne);
 		intent.putExtra("Player2", playerTwo);
-		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("QuestionScore", 1);
 		intent.putExtra("Device", Device);
 		intent.putExtra("Question", bank.GetScienceQuestion(10)[0]);
 		intent.putExtra("Answer", bank.GetScienceQuestion(10)[1]);
@@ -315,7 +315,7 @@ public class BoardActivity extends AppCompatActivity{
 		//put them on the intent and send them over!
 		intent.putExtra("Player1", playerOne);
 		intent.putExtra("Player2", playerTwo);
-		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("QuestionScore", 1);
 		intent.putExtra("Device", Device);
 		intent.putExtra("Question", bank.GetMathQuestion(10)[0]);
 		intent.putExtra("Answer", bank.GetMathQuestion(10)[1]);
@@ -385,7 +385,7 @@ public class BoardActivity extends AppCompatActivity{
 		//put them on the intent and send them over!
 		intent.putExtra("Player1", playerOne);
 		intent.putExtra("Player2", playerTwo);
-		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("QuestionScore", 1);
 		intent.putExtra("Device", Device);
 		intent.putExtra("Question", bank.GetEnglishQuestion(10)[0]);
 		intent.putExtra("Answer", bank.GetEnglishQuestion(10)[1]);
@@ -455,7 +455,7 @@ public class BoardActivity extends AppCompatActivity{
 		//put them on the intent and send them over!
 		intent.putExtra("Player1", playerOne);
 		intent.putExtra("Player2", playerTwo);
-		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("QuestionScore", 1);
 		intent.putExtra("Device", Device);
 		intent.putExtra("Question", bank.GetChemQuestion(10)[0]);
 		intent.putExtra("Answer", bank.GetChemQuestion(10)[1]);
@@ -526,7 +526,7 @@ public class BoardActivity extends AppCompatActivity{
 		//put them on the intent and send them over!
 		intent.putExtra("Player1", playerOne);
 		intent.putExtra("Player2", playerTwo);
-		intent.putExtra("QuestionScore", 10);
+		intent.putExtra("QuestionScore", 1);
 		intent.putExtra("Device", Device);
 		intent.putExtra("Question", bank.GetLitQuestion(10)[0]);
 		intent.putExtra("Answer", bank.GetLitQuestion(10)[1]);

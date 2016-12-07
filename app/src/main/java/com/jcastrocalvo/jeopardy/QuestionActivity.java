@@ -132,6 +132,7 @@ public class QuestionActivity extends AppCompatActivity {
                     System.out.println("There was a problem with the connection");
                 byte[] message =  Integer.toString(scoreToAdd).getBytes();
                 bluetoothService.write(message);
+                bluetoothService.stop();
                 dialog.dismiss();
                 QuestionActivity.this.finish();
             }});

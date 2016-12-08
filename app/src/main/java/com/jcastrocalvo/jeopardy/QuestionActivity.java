@@ -22,7 +22,7 @@ import java.util.TimerTask;
 
 //this is the question activity that handles all of the actual sending to update score
 public class QuestionActivity extends AppCompatActivity {
-    int time = 5;
+    int time = 11;
     TextView timerTextView;
     TextView question;
 	TextView answer;
@@ -49,22 +49,7 @@ public class QuestionActivity extends AppCompatActivity {
         Device = i.getParcelableExtra("Device");
 	    question.setText(i.getStringExtra("Question"));
 	    answer.setText(i.getStringExtra("Answer"));
-
-
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-        if (pairedDevices.size() > 0) {
-            // Loop through paired devices
-            for (BluetoothDevice device : pairedDevices) {
-                // Add the name and address to an array adapter to show in a ListView
-                if(Objects.equals(device.getAddress(), "20:16:03:25:62:42"))
-                    Device = device;
-                System.out.println(device.getName() + "\n" + device.getAddress());
-            }
-        }
-        android.os.Handler handler = new android.os.Handler();
-        bluetoothService = new BluetoothService(handler, Device);
-        bluetoothService.connect();
+        bluetoothService = BluetoothService.getInstance();
 
         //now we do the threading magic so we run on the main thread
         final Timer timer = new Timer();
@@ -102,7 +87,6 @@ public class QuestionActivity extends AppCompatActivity {
 
     }
 
-
     //display the dialog with options for each player and no answer possibility
     public void displayDialog(){
         final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
@@ -132,7 +116,6 @@ public class QuestionActivity extends AppCompatActivity {
                     System.out.println("There was a problem with the connection");
                 byte[] message =  Integer.toString(scoreToAdd).getBytes();
                 bluetoothService.write(message);
-                bluetoothService.stop();
                 dialog.dismiss();
                 QuestionActivity.this.finish();
             }});

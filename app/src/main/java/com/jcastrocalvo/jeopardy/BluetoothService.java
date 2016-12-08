@@ -1,32 +1,51 @@
 package com.jcastrocalvo.jeopardy;
 
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Parcelable;
 import android.util.Log;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.Objects;
+import java.util.Set;
 import java.util.UUID;
-
 
 public class BluetoothService{
 
     private Handler myHandler;
     private int state;
+    private static BluetoothService instance = null;
 
     BluetoothDevice myDevice;
 
     ConnectThread connectThread;
     ConnectedThread connectedThread;
 
-    public BluetoothService(Handler handler, BluetoothDevice device) {
+    protected BluetoothService() {
         state = Constants.STATE_NONE;
-        myHandler = handler;
-        myDevice = device;
+        myHandler = new android.os.Handler();
+        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if(mBluetoothAdapter == null)
+            Log.d("Bluetooth Set up", "Failed");
+        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
+        for (BluetoothDevice device : pairedDevices) {
+            // Add the name and address to an array adapter to show in a ListView
+            if(Objects.equals(device.getAddress(), "20:16:03:25:62:42"))
+                myDevice = device;
+            System.out.println(device.getName() + "\n" + device.getAddress());
+        }
+        this.connect();
+    }
+
+    public static BluetoothService getInstance() {
+        if(instance == null) {
+            instance = new BluetoothService();
+        }
+        return instance;
     }
 
     public synchronized void connect() {

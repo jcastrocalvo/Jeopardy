@@ -34,41 +34,14 @@ public class MenuActivity extends AppCompatActivity {
         playerOne = new Player(1, ipAddress, portNumber);
         playerTwo = new Player(2, ipAddress, portNumber);
 
-        BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
-        if(mBluetoothAdapter == null)
-            Log.d("Bluetooth Set up", "Failed");
-        if (!mBluetoothAdapter.isEnabled()) {
-            Intent enableBtIntent = new Intent(BluetoothAdapter.ACTION_REQUEST_ENABLE);
-            startActivityForResult(enableBtIntent, REQUEST_ENABLE_BT);
-        }
-        Set<BluetoothDevice> pairedDevices = mBluetoothAdapter.getBondedDevices();
-        if (pairedDevices.size() > 0) {
-            // Loop through paired devices
-            for (BluetoothDevice device : pairedDevices) {
-                // Add the name and address to an array adapter to show in a ListView
-                if(Objects.equals(device.getAddress(), "20:16:03:25:62:42"))
-                    Device = device;
-                System.out.println(device.getName() + "\n" + device.getAddress());
-            }
-        }
-        android.os.Handler handler = new android.os.Handler();
-        bluetoothService = new BluetoothService(handler, Device);
-        bluetoothService.connect();
+        bluetoothService = BluetoothService.getInstance();
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        bluetoothService.stop();
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (bluetoothService != null) {
-            bluetoothService.connect();
-        }
-    }
 
     //serializes the player info so we can send it accross activities
     public void sendMessage(View view) {

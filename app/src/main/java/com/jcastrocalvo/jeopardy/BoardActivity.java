@@ -1,8 +1,10 @@
 package com.jcastrocalvo.jeopardy;
 
 import android.bluetooth.BluetoothDevice;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -110,7 +112,61 @@ public class BoardActivity extends AppCompatActivity{
         LiteratureThousandButton = (Button) findViewById(R.id.sixthview_tenButton);
     }
 
-	//-----------------------------------------------------------
+    @Override
+    public void onResume() {
+        super.onResume();
+        if(HistTwoHundredButton.getVisibility() == View.GONE &&
+                HistFourHundredButton.getVisibility() == View.GONE &&
+                HistSixHundredButton.getVisibility() == View.GONE &&
+                HistEightHundredButton.getVisibility() == View.GONE &&
+                HistThousandButton.getVisibility() == View.GONE &&
+                EnglishTwoHundredButton.getVisibility() == View.GONE &&
+                EnglishFourHundredButton.getVisibility() == View.GONE &&
+                EnglishSixHundredButton.getVisibility() == View.GONE &&
+                EnglishEightHundredButton.getVisibility() == View.GONE &&
+                EnglishThousandButton.getVisibility() == View.GONE &&
+                ScienceTwoHundredButton.getVisibility() == View.GONE &&
+                ScienceFourHundredButton.getVisibility() == View.GONE &&
+                ScienceSixHundredButton.getVisibility() == View.GONE &&
+                ScienceEightHundredButton.getVisibility() == View.GONE &&
+                ScienceThousandButton.getVisibility() == View.GONE &&
+                ChemistryTwoHundredButton.getVisibility() == View.GONE &&
+                ChemistryFourHundredButton.getVisibility() == View.GONE &&
+                ChemistrySixHundredButton.getVisibility() == View.GONE &&
+                ChemistryEightHundredButton.getVisibility() == View.GONE &&
+                ChemistryThousandButton.getVisibility() == View.GONE &&
+                MathTwoHundredButton.getVisibility() == View.GONE &&
+                MathFourHundredButton.getVisibility() == View.GONE &&
+                MathSixHundredButton.getVisibility() == View.GONE &&
+                MathEightHundredButton.getVisibility() == View.GONE &&
+                MathThousandButton.getVisibility() == View.GONE &&
+                LiteratureTwoHundredButton.getVisibility() == View.GONE &&
+                LiteratureFourHundredButton.getVisibility() == View.GONE &&
+                LiteratureSixHundredButton.getVisibility() == View.GONE &&
+                LiteratureEightHundredButton.getVisibility() == View.GONE &&
+                LiteratureThousandButton.getVisibility() == View.GONE)
+            displayDialog();
+    }
+
+    public void displayDialog() {
+        final AlertDialog alertDialog = new AlertDialog.Builder(this).create();
+
+        //set the title
+        alertDialog.setTitle("Game Over");
+
+        //set the question
+        alertDialog.setMessage("Check scores now to find Winner!");
+
+        //first button to give points to the first player
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Dismiss", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+                BoardActivity.this.finish();
+            }});
+        alertDialog.show();
+    }
+
+        //-----------------------------------------------------------
     public void HistQuestionTwoHundred(View view){
         //get ready to serialize for the next activity
         Intent intent = new Intent(this, QuestionActivity.class);

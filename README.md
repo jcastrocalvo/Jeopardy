@@ -13,7 +13,7 @@ Utilizing the following architecture with the Landtiger LPC1768 board, we are ab
 </p>
 
 
-##Sample image of the application
+Sample image of the application
 
 <p align="center">
   <img src="/Pictures/JeopardyBoardPage.png" width="170">
